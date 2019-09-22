@@ -11,12 +11,13 @@ const goods = [
 ];
 const renderList = (items) => {
     const renderedGoods = items.map(renderItem).join('');
-    const catalogHeader = '<div class="products__box products__box_x3 div_flex"></div>';
     //Запятые стоят из-за того, что .map возвращает массив, разделенный запятыми. Чтобы их убрать, превратим массив в строку с помощью .join
+    const catalogHeader = '<div class="products__box products__box_x3 div_flex"></div>';
     document.querySelector('.catalog').insertAdjacentHTML("beforeend", catalogHeader);
     document.querySelector('.products__box').insertAdjacentHTML("beforeend", renderedGoods);
 };
-const renderItem = ({title, price, imgLink}) => {
+
+const renderItem = ({title = 'Undefined product', price = 0, imgLink = 'img/Product_1.png'}) => {
     return `
 <div class="product__element">
     <a href="" class="product__content">
