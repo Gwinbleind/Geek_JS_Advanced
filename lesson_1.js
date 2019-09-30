@@ -18,15 +18,7 @@ const renderList = (items) => {
 };
 
 const renderItem = ({title = 'Undefined product', price = 0, imgLink = 'img/Product_1.png'}) => {
-    return `
-<div class="product__element">
-    <a href="" class="product__content">
-        <img class="product__img" src="${imgLink}" alt="">
-        <div class="product__name">${title}</div>
-        <div class="product__price">$${price}</div>
-    </a>
-    <a href="#" class="product__add">Add to Cart</a>
-</div>`;
+    return `<div class="product__element"><a href="" class="product__content"><img class="product__img" src="${imgLink}" alt=""><div class="product__name">${title}</div><div class="product__price">$${price}</div></a><a href="#" class="product__add">Add to Cart</a></div>`;
 };
 
 renderList(goods);
