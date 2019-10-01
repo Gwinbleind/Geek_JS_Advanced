@@ -74,15 +74,15 @@ const catalog = [
         img_medium: 'img/Product_15.jpg',
         img_large: ''},
 ];
-const sampleProduct = {
-    id_product: 1,
-    product_name: 'MANGO PEOPLE T-SHIRT',
-    price: 1000,
-    quantity: 1,
-    img_small: '',
-    img_medium: 'img/Product_1.png',
-    img_large: ''
-};
+// const sampleProduct = {
+//     id_product: 1,
+//     product_name: 'MANGO PEOPLE T-SHIRT',
+//     price: 1000,
+//     quantity: 1,
+//     img_small: '',
+//     img_medium: 'img/Product_1.png',
+//     img_large: ''
+// };
 
 class ProductsList {
     constructor() {
@@ -103,19 +103,15 @@ class ProductsList {
         this.amount = 0;
         if (this.items.length > 0) {
             this.items.forEach((element) => {
-                this.amount += element.price * element.quantity; //Почему-то Storm не отмечает этот this нужным цветом, обратить внимание на работу алгоритма
-            this.countGoods += element.quantity;
-        })
+                this.amount += element.price * element.quantity;
+                this.countGoods += element.quantity;
+            })
         }
     }
 
     renderDropCart() {
-        // let dropCartTag = document.querySelector('#dropCart'); //Проверить как работает переменная в таком синтаксисе
-        // dropCartTag.innerHTML = '';
-        // dropCartTag.insertAdjacentHTML("afterbegin", this.items.map(product => `<div class="cart__product"><img src="${product.img_small}" alt="" class="cart__prod_img"><div class="cart__prod_title">${product.product_name}</div><img src="img/stars5.jpg" alt="stars" class="cart__prod_stars"><div class="cart__prod_price">${product.quantity}&nbsp<span class="price_x">x</span>&nbsp$${product.price}</div><i class="cart__prod_del fa fa-times-circle"></i></div>`).join(''));
-        // dropCartTag.insertAdjacentHTML("beforeend",`<div class="cart__total"><span>TOTAL</span><span>$${this.amount}</span></div><a href="#" class="cart__check div_flex"><span>Checkout</span></a><a href="#" class="button_goto div_flex"><span>Go to cart</span></a>`);
         // return this.items.map((item) => {new Product(...item())}) // а можно ли так?
-        return this.items.map((item) => {new Product(item.id_product, item.product_name, item.price, item.quality, item.img_small,'','').renderDropCartElement()}).join('')
+        return this.items.map((item) => {return new Product(item.id_product, item.product_name, item.price, item.quality, item.img_small,'','').renderDropCartElement()}).join('')
     }
     insertDropCart() {
         document.querySelector('#dropCart').innerHTML = this.renderDropCart()+`<div class="cart__total"><span>TOTAL</span><span>$${this.amount}</span></div><a href="#" class="cart__check div_flex"><span>Checkout</span></a><a href="#" class="button_goto div_flex"><span>Go to cart</span></a>`;
@@ -132,17 +128,17 @@ class ProductsList {
     }
     addProduct(targetID) {
         let cartIndex = -1;
-        if (this.content.length > 0) {
-            cartIndex = this.content.map(obj => obj.id_product).indexOf(+targetID)
+        if (this.items.length > 0) {
+            cartIndex = this.items.map(obj => obj.id_product).indexOf(+targetID)
         }
         const catalogIndex = catalog.map(obj => obj.id_product).indexOf(+targetID);
         if (cartIndex < 0) {
-            this.content.push(catalog[catalogIndex]);
+            this.items.push(catalog[catalogIndex]);
         } else {
-            this.content[cartIndex].quantity++
+            this.items[cartIndex].quantity++
         }
         this.countCart();
-        this.renderDropCart();
+        this.insertDropCart();
     }
 }
 
