@@ -5,8 +5,13 @@ $button.addEventListener('click', () => {
     xhr.open('GET','/users');
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-            console.log(xhr.responseText, typeof xhr.responseText);
-
+            const users = JSON.parse(xhr.responseText);
+            users.forEach(user => {
+                const $li = document.createElement('li');
+                $li.textContent = `${user.name} (${user.age})`;
+                $list.appendChild($li);
+            })
         }
-    }
+    };
+    xhr.send();
 });
