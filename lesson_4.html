@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Регулярные выражения</title>
+</head>
+<body>
+<p>Исходная строка</p>
+<input id="input" type="text">
+<p>Результат</p>
+<p id="output"></p>
+<script>
+    document.querySelector('#input').value = `'Superstart 'Start end' bet'ween point.' quest?' excl!' zpt',`; //Все комбинации с кавычками
+    // document.querySelector('#input').value = `'I say 'You can't go here', but they don't listen me'`; //Литературный пример
+	regExpChange = function() {
+       let $output = document.querySelector('#output');
+       let $input = document.querySelector('#input');
+       //Проще не отсеивать лишние кавычки, а заменить все на двойные, а потом заменить обратно те, что стоят в средине слова
+       $output.innerText = $input.value.replace(/'/g,`"`);
+       $output.innerText = $output.innerText.replace(/([\w])"([\w])/g,`$1'$2`);
+   };
+	document.querySelector('#input').addEventListener('input',regExpChange);
+	regExpChange();
+</script>
+</body>
+</html>
