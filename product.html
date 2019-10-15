@@ -73,7 +73,9 @@
                         <div class="cart__prod_title">{{item.product_name}}</div>
                         <img src="img/stars5.jpg" alt="stars" class="cart__prod_stars">
                         <div class="cart__prod_price">{{item.amount}}&nbsp<span class="price_x">x</span>&nbsp${{item.price}}</div>
-                        <i :data-product__id="item.id" @click.stop.prevent="cartXClickHandler" class="cart__prod_del fa fa-times-circle"></i>
+                        <a @click.stop.prevent="cartXClickHandler" href="#">
+                           <i :data-product__id="item.id" class="cart__prod_del fa fa-times-circle"></i>
+                        </a>
                      </div>
                   </template>
                   <span v-else>Cart is empty</span>

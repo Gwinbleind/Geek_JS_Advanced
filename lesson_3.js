@@ -146,7 +146,7 @@ const app = new Vue({
             return this.addToCart(+event.target.dataset.product__id);
         },
         cartXClickHandler(event) {
-            if (event.target.className !== 'cart__prod_del') return;
+            if (!event.target.classList.contains('cart__prod_del')) return;
             return this.deleteFromCart(event.target.dataset.product__id);
         },
         searchById(array,id) {
@@ -157,7 +157,7 @@ const app = new Vue({
             let index = this.searchById(this.cart.items,id);
             if (index+1) {
                 this.update(id,this.cart.items[index].amount+1)
-                    .then(index => {
+                    .then(() => {
                         this.cart.items[index].amount++
                     })
             } else {
@@ -169,7 +169,7 @@ const app = new Vue({
         },
         deleteFromCart(id) {
             if (confirm('Are you serious?')) {
-                this.delete(id).then(id => {
+                this.delete(id).then(() => {
                     let index = this.searchById(this.cart.items,id);
                     if (index+1) {
                         this.cart.items.splice(index,1);
