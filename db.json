@@ -1,87 +1,110 @@
 {
   "users": [
-    {"id": 1, "name": "Imya1", "age": 40},
-    {"id": 2, "name": "Imya2", "age": 50},
-    {"id": 3, "name": "Imya3", "age": 60}
+    {
+      "id": 1,
+      "name": "Imya1",
+      "age": 40
+    },
+    {
+      "id": 2,
+      "name": "Imya2",
+      "age": 50
+    },
+    {
+      "id": 3,
+      "name": "Imya3",
+      "age": 60
+    }
   ],
   "catalog": [
-    {"id": 14,
+    {
+      "id": 14,
       "product_name": "MANGO Black Coat",
       "price": 52,
       "amount": 1,
       "img_small": "img/product_mini/Product_14.jpg",
       "img_medium": "img/Product_14.jpg",
-      "img_large": ""},
-    {"id": 16,
+      "img_large": ""
+    },
+    {
+      "id": 16,
       "product_name": "MANGO Black Romb Coat",
       "price": 52,
       "amount": 1,
       "img_small": "img/product_mini/Product_16.jpg",
       "img_medium": "img/Product_16.jpg",
-      "img_large": ""},
-    {"id": 3,
+      "img_large": ""
+    },
+    {
+      "id": 3,
       "product_name": "MANGO Blue Skirt",
       "price": 52,
       "amount": 1,
       "img_small": "img/product_mini/Product_3.png",
       "img_medium": "img/Product_3.png",
-      "img_large": ""},
-    {"id": 12,
+      "img_large": ""
+    },
+    {
+      "id": 12,
       "product_name": "MANGO Strange T-SHIRT",
       "price": 52,
       "amount": 1,
       "img_small": "img/product_mini/Product_12.jpg",
       "img_medium": "img/Product_12.jpg",
-      "img_large": ""},
-    {"id": 8,
+      "img_large": ""
+    },
+    {
+      "id": 8,
       "product_name": "MANGO LOL Hat",
       "price": 52,
       "amount": 1,
       "img_small": "img/product_mini/Product_8.png",
       "img_medium": "img/Product_8.png",
-      "img_large": ""},
-    {"id": 17,
+      "img_large": ""
+    },
+    {
+      "id": 17,
       "product_name": "MANGO Cool Cardigan",
       "price": 52,
       "amount": 1,
       "img_small": "img/product_mini/Product_17.jpg",
       "img_medium": "img/Product_17.jpg",
-      "img_large": ""},
-    {"id": 6,
+      "img_large": ""
+    },
+    {
+      "id": 6,
       "product_name": "MANGO Grey Star",
       "price": 52,
       "amount": 1,
       "img_small": "img/product_mini/Product_6.png",
       "img_medium": "img/Product_6.png",
-      "img_large": ""},
-    {"id": 13,
+      "img_large": ""
+    },
+    {
+      "id": 13,
       "product_name": "MANGO Black Long Smth",
       "price": 52,
       "amount": 1,
       "img_small": "img/product_mini/Product_13.jpg",
       "img_medium": "img/Product_13.jpg",
-      "img_large": ""},
-    {"id": 15,
+      "img_large": ""
+    },
+    {
+      "id": 15,
       "product_name": "MANGO Cool Beard",
       "price": 52,
       "amount": 1,
       "img_small": "img/product_mini/Product_15.jpg",
       "img_medium": "img/Product_15.jpg",
-      "img_large": ""}
+      "img_large": ""
+    }
   ],
   "totalCart": [
-    {"id": "cart",
+    {
+      "id": "cart",
       "amount": 52,
       "countGoods": 1
     }
   ],
-  "cart": [
-    {"id": 14,
-      "product_name": "MANGO Black Coat",
-      "price": 52,
-      "amount": 1,
-      "img_small": "img/product_mini/Product_14.jpg",
-      "img_medium": "img/Product_14.jpg",
-      "img_large": ""}
-  ]
+  "cart": []
 }
