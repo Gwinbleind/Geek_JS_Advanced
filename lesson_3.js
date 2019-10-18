@@ -1,5 +1,5 @@
 Vue.component('catalog-element-component', {
-    prop: ['id', 'product_name', 'price', 'img_medium'],
+    props: ['id', 'product_name', 'price', 'img_medium'],
     template: `<div class="product__element">
                <a href="" class="product__content">
                   <img class="product__img" :src="img_medium" alt="">
@@ -17,19 +17,19 @@ Vue.component('catalog-element-component', {
 });
 
 Vue.component('catalog-list-component', {
-    prop: ['items','show'],
+    props: ['items'],
     template:
-        `<div>
-            <template v-if="show">
-                <catalog-element-component 
-                  v-for="item in items" 
-                  :id="item.id" 
-                  :product_name="item.product_name" 
-                  :price="item.price" 
-                  :img_medium="item.img_medium"
-                  @buy="handleByClick(item)"
-                ></catalog-element-component>
-            </template>
+        `<div class="products__box products__box_x3 div_flex">
+            <catalog-element-component 
+              v-if="items.length"
+              v-for="item in items"
+              :key="item.id"
+              :id="item.id" 
+              :product_name="item.product_name" 
+              :price="item.price" 
+              :img_medium="item.img_medium"
+              @buy="handleByClick(item)"
+            ></catalog-element-component>
             <span v-else>Find nothing</span>
         </div>`,
     methods: {
@@ -73,9 +73,8 @@ const app = new Vue({
                 return regExp.test(item.product_name)
             });
         },
-        productsBoxClickHandler(event) {
-            if (event.target.className !== 'product__add') return;
-            return this.addToCart(+event.target.dataset.product__id);
+        productsBoxClickHandler(item) {
+            return this.addToCart(+item.id);
         },
         cartXClickHandler(event) {
             if (!event.target.classList.contains('cart__prod_del')) return;

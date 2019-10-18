@@ -204,7 +204,7 @@
       <div class="sidebar"></div>
       <div class="topFilter"></div>
       <div class="products__box products__box_x3 div_flex">
-         <catalog-list-component :items="filteredCatalog" :showCatalog="show"></catalog-list-component>
+         <catalog-list-component :items="filteredCatalog" @buy="productsBoxClickHandler"></catalog-list-component>
 <!--         <template v-if="showCatalog">-->
 <!--            <div v-for="item in filteredCatalog" class="product__element">-->
 <!--               <a href="" class="product__content">-->
