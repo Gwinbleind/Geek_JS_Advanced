@@ -1,3 +1,44 @@
+Vue.component('catalog-element-component', {
+    prop: ['id', 'product_name', 'price', 'img_medium'],
+    template: `<div class="product__element">
+               <a href="" class="product__content">
+                  <img class="product__img" :src="img_medium" alt="">
+                  <div class="product__name">{{product_name}}</div>
+                  <div class="product__price">{{price}}.00</div>
+               </a>
+               <a href="#" @click.stop.prevent="handleByClick(id)" class="product__add" :data-product__id="id">Add to Cart</a>
+               <img src="img/stars5.jpg" alt="stars" class="product__stars">
+            </div>`,
+    methods: {
+        handleByClick(id) {
+            this.$emit('buy', id);
+        }
+    },
+});
+
+Vue.component('catalog-list-component', {
+    prop: ['items','show'],
+    template:
+        `<div>
+            <template v-if="show">
+                <catalog-element-component 
+                  v-for="item in items" 
+                  :id="item.id" 
+                  :product_name="item.product_name" 
+                  :price="item.price" 
+                  :img_medium="item.img_medium"
+                  @buy="handleByClick(item)"
+                ></catalog-element-component>
+            </template>
+            <span v-else>Find nothing</span>
+        </div>`,
+    methods: {
+        handleByClick(item) {
+            this.$emit('buy', item);
+        },
+    },
+});
+
 const app = new Vue({
     el: '#root',
     data: {

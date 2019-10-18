@@ -204,18 +204,19 @@
       <div class="sidebar"></div>
       <div class="topFilter"></div>
       <div class="products__box products__box_x3 div_flex">
-         <template v-if="showCatalog">
-            <div v-for="item in filteredCatalog" class="product__element">
-               <a href="" class="product__content">
-                  <img class="product__img" :src="item.img_medium" alt="">
-                  <div class="product__name">{{item.product_name}}</div>
-                  <div class="product__price">{{item.price}}.00</div>
-               </a>
-               <a href="#" @click.stop.prevent="productsBoxClickHandler" class="product__add" :data-product__id="item.id">Add to Cart</a>
-               <img src="img/stars5.jpg" alt="stars" class="product__stars">
-            </div>
-         </template>
-         <span v-else>Find nothing</span>
+         <catalog-list-component :items="filteredCatalog" :showCatalog="show"></catalog-list-component>
+<!--         <template v-if="showCatalog">-->
+<!--            <div v-for="item in filteredCatalog" class="product__element">-->
+<!--               <a href="" class="product__content">-->
+<!--                  <img class="product__img" :src="item.img_medium" alt="">-->
+<!--                  <div class="product__name">{{item.product_name}}</div>-->
+<!--                  <div class="product__price">{{item.price}}.00</div>-->
+<!--               </a>-->
+<!--               <a href="#" @click.stop.prevent="productsBoxClickHandler" class="product__add" :data-product__id="item.id">Add to Cart</a>-->
+<!--               <img src="img/stars5.jpg" alt="stars" class="product__stars">-->
+<!--            </div>-->
+<!--         </template>-->
+<!--         <span v-else>Find nothing</span>-->
       </div>
       <div class="pagination"></div>
    </div>
